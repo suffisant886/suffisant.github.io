@@ -64,10 +64,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Git分享" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-js对象" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2022/01/22/Git%E5%88%86%E4%BA%AB/" class="article-date">
-  <time datetime="2022-01-22T07:51:31.542Z" itemprop="datePublished">2022-01-22</time>
+    <a href="/2022/01/22/js%E5%AF%B9%E8%B1%A1/" class="article-date">
+  <time datetime="2022-01-22T08:25:30.560Z" itemprop="datePublished">2022-01-22</time>
 </a>
     
   </div>
@@ -76,10 +76,297 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><font color="#900" size=4>大家有没有这样一种困扰，每次在修改word文件时，版本很多忘记了之前几次的修改，想返回去的时候已经没有记录了，于是版本控制就诞生了！</font></p>
+        <h1 id="对象导读"><a href="#对象导读" class="headerlink" title="对象导读"></a>对象导读</h1><h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><p>什么是对象？对象是一个<strong>具体的事物</strong>。举个例子：明星不是对象，但是周星驰就是一个对象。<br>在JavaScript中，对象是一组无序的<strong>相关属性</strong>和<strong>方法</strong>的集合。所有的事物都是对象，例如字符串、数值、数组、函数等。<strong>属性常用名词，方法常用动词。</strong></p>
+<h2 id="创建对象的三种方式"><a href="#创建对象的三种方式" class="headerlink" title="创建对象的三种方式"></a>创建对象的三种方式</h2><ul>
+<li>利用字面量创建对象</li>
+<li>利用new object创建对象</li>
+<li>利用构造函数创建对象</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span><span class="comment">//利用对象字面量创建对象</span></span><br><span class="line">var obj = &#123;&#125;;<span class="comment">//空的</span></span><br><span class="line">var obj = &#123;                                                                                                        </span><br><span class="line">	username: <span class="string">&#x27;张三&#x27;</span>,</span><br><span class="line">	age: <span class="number">18</span>,</span><br><span class="line">	sex: <span class="string">&#x27;男&#x27;</span>,</span><br><span class="line">	sayHi: function() &#123;</span><br><span class="line">		console.<span class="built_in">log</span>()</span><br><span class="line"><span class="comment">//调用对象的属性，我们采取对象.属性名console.log(obj.username)</span></span><br><span class="line">还有一种方法 对象名【<span class="string">&#x27;属性名&#x27;</span>】console.<span class="built_in">log</span>([<span class="string">&#x27;age&#x27;</span>])</span><br><span class="line"><span class="comment">//调用对象的方法 对象名.方法名</span></span><br><span class="line">obj.sayHi();<span class="comment">//一定要添加小括号</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2.</span>var obj = <span class="keyword">new</span> Object();<span class="comment">//创建了一个空的对象，这里和之间文章里面写的创建空的数组是相同的道理。</span></span><br><span class="line">obj.user = <span class="string">&#x27;张三丰&#x27;</span>;</span><br><span class="line">obj.age = <span class="number">18</span>;</span><br><span class="line">obj.sex = <span class="string">&#x27;男&#x27;</span>;</span><br><span class="line">obj.sayHi = fuction() &#123;</span><br><span class="line">	console.<span class="built_in">log</span>(<span class="string">&#x27;hi~&#x27;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//利用等号赋值的方法，添加对象的属性和方法</span></span><br><span class="line">	<span class="comment">//每个属性和方法之间用分号结束</span></span><br><span class="line">console.<span class="built_in">log</span>(obj.sex);</span><br><span class="line">console.<span class="built_in">log</span>(obj[<span class="string">&#x27;username&#x27;</span>]);</span><br><span class="line">obj.sayHi();</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>3.利用构造函数创建多个对象<br><em>构造函数里面封装的不是普通代码而是对象</em></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建四大天王的对象</span></span><br><span class="line">相同属性：姓名 年龄 性别 相同的方法：唱歌</span><br><span class="line">function 构造函数名 () &#123;</span><br><span class="line">	<span class="keyword">this</span>.属性;</span><br><span class="line">	<span class="keyword">this</span>.方法 = function () &#123;&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">new</span> 构造函数名();</span><br><span class="line">	<span class="function">function <span class="title">Star</span><span class="params">(username,age,sex)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name = username;</span><br><span class="line">	<span class="keyword">this</span>.age = age;</span><br><span class="line">	<span class="keyword">this</span>.sex = sex;</span><br><span class="line">	<span class="keyword">this</span>.sing = function (song) &#123;</span><br><span class="line">	console.<span class="built_in">log</span>(song);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">var ldh = <span class="keyword">new</span> Star(<span class="string">&#x27;刘德华&#x27;</span>,<span class="number">18</span>,<span class="string">&#x27;男&#x27;</span>);<span class="comment">//ldh就是对象</span></span><br><span class="line"><span class="comment">//构造函数名首字母必须大写</span></span><br><span class="line"><span class="comment">//不需要return 返回值</span></span><br><span class="line">console.<span class="built_in">log</span>(typeof ldh);</span><br><span class="line">console.<span class="built_in">log</span>(ldh.name);</span><br><span class="line">var zxy = <span class="keyword">new</span> Star(<span class="string">&#x27;张学友&#x27;</span>,<span class="number">19</span>,<span class="string">&#x27;男&#x27;</span>);</span><br><span class="line">zxy.sing = <span class="string">&#x27;冰雨&#x27;</span>;</span><br><span class="line">var lm = <span class="keyword">new</span> Star(<span class="string">&#x27;黎明&#x27;</span>,<span class="number">20</span>,<span class="string">&#x27;男&#x27;</span>);</span><br><span class="line"><span class="comment">//一定要记得加this!!!</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>构造函数和对象的区别：<br>构造函数泛指某一类，对象是具体的事物，利用构造函数创建对象称为对象的实例化</p>
+</blockquote>
+<h2 id="new关键字"><a href="#new关键字" class="headerlink" title="new关键字"></a>new关键字</h2><p>new执行分为四步：</p>
+<ol>
+<li>利用new在内存创建一个空的对象</li>
+<li>让this指向这个对象</li>
+<li>执行构造函数里面的代码，给这个对象添加属性和方法</li>
+<li>返回这个新对象</li>
+</ol>
+<h2 id="遍历对象属性"><a href="#遍历对象属性" class="headerlink" title="遍历对象属性"></a>遍历对象属性</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">	username = <span class="string">&#x27;pink老师&#x27;</span>,</span><br><span class="line">	sex = <span class="string">&#x27;男&#x27;</span>,</span><br><span class="line">	age = <span class="number">20</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//for in语句遍历对象</span></span><br><span class="line"><span class="keyword">for</span>(变量 in 对象) &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(var k in obj)<span class="comment">//k 或者 key</span></span><br><span class="line">&#123;</span><br><span class="line">	console.<span class="built_in">log</span>(k);<span class="comment">//k是变量得到属性名</span></span><br><span class="line">	console.<span class="built_in">log</span>(obj[k])<span class="comment">//obj[k]得到的是属性值</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="变量、函数、属性、方法"><a href="#变量、函数、属性、方法" class="headerlink" title="变量、函数、属性、方法"></a>变量、函数、属性、方法</h1><p>变量和属性都是存储数据的，比如var num=5;<br>var obj = { num: 5}.。但是变量需要声明，属性不需要声明。<br>函数和方法都是用来实现某种功能的，函数就是function fn (){<br>}，而方法就是fn: function(){},区别就是方法是在对象里面的。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/01/22/js%E5%AF%B9%E8%B1%A1/" data-id="ckypkjjo70001mww3aaikecfd" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-【CSS知识分享】" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/01/22/%E3%80%90CSS%E7%9F%A5%E8%AF%86%E5%88%86%E4%BA%AB%E3%80%91/" class="article-date">
+  <time datetime="2022-01-22T08:18:58.849Z" itemprop="datePublished">2022-01-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>css是什么？</p>
+</blockquote>
+<p>css全称：Cascading Style Sheets 用以定义页面元素样式。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">h1 &#123;</span><br><span class="line">  color:white;</span><br><span class="line">&#125;</span><br><span class="line">h1：选择器（selector）。表示这个样式针对哪个对象。</span><br><span class="line">color：属性（property）。</span><br><span class="line">white：属性值（value）。</span><br><span class="line">color:whilte;：一条声明（declaration）。</span><br></pre></td></tr></table></figure>
+<p><strong>如何使用css？</strong><br>1、外链 （可以实现内容和样式分离）</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link ref = <span class="string">&quot;stylesaheet&quot;</span> href = <span class="string">&quot;css/style.css&quot;</span>&gt;</span><br></pre></td></tr></table></figure>
+<p>2、嵌入</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">  div &#123;</span><br><span class="line">    width:<span class="number">400</span>px;</span><br><span class="line">&lt;style&gt;</span><br></pre></td></tr></table></figure>
+
+<p>3、内联</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;p style = <span class="string">&quot;font-size:24px;&quot;</span>&gt;&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>css如何工作？<br><img src="https://img-blog.csdnimg.cn/9bef915e4d6a47c0bc1ec3fcd36d63cc.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb3JsYW5kaW8=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></li>
+<li>选择器（selector）<br>通配选择器<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">*：面对所有元素</span><br><span class="line">* &#123;</span><br><span class="line">  margin:<span class="number">0</span>;</span><br><span class="line">  padding:<span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+id选择器</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">id = <span class="string">&quot;demo&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#demo&#123;</span></span><br><span class="line">  color:red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>类选择器</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> =</span> <span class="string">&quot;demo&quot;</span> </span><br><span class="line"></span><br><span class="line">.demo &#123;</span><br><span class="line">  color:blue;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>属性选择器</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type = <span class="string">&quot;text&quot;</span> disabled&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">  [disabled] &#123;</span><br><span class="line">     border:<span class="number">1</span>px solid red;</span><br><span class="line">   &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">[disabled] 表示：只要标签中包含disabled属性即拥有border:<span class="number">1</span>px solid red的样式。</span><br><span class="line"></span><br><span class="line">input[type = <span class="string">&quot;password&quot;</span>] &#123;</span><br><span class="line">  background-color:<span class="meta">#fff;</span></span><br><span class="line">  &#125;</span><br><span class="line">input[type = <span class="string">&quot;password&quot;</span>] 表示：凡是type属性的属性值为password的input输入框都设置背景颜色为<span class="meta">#fff;</span></span><br><span class="line"></span><br><span class="line">延伸：</span><br><span class="line"></span><br><span class="line">a[href ^= <span class="string">&quot;#&quot;</span>]&#123;</span><br><span class="line">  color:red;</span><br><span class="line">&#125;;</span><br><span class="line">a[herf $= <span class="string">&quot;.jpg&quot;</span>]&#123;</span><br><span class="line">  color:black;</span><br><span class="line">&#125;;</span><br><span class="line">a[href ^= <span class="string">&quot;#&quot;</span>]表示：链接地址以#开头的超链接都有color：red的样式；</span><br><span class="line">a[herf $= <span class="string">&quot;.jpg&quot;</span>]表示：链接地址以.jpg结尾的超链接都有color:black的样式。</span><br></pre></td></tr></table></figure>
+<p>伪类选择器<br>状态伪类选择器，在不同状态下变换不同样式。 如：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a:link <span class="comment">//默认样式</span></span><br><span class="line">a:visited <span class="comment">//a链接已经被访问过后的样式</span></span><br><span class="line">a:hover <span class="comment">//悬停样式</span></span><br><span class="line">a:active <span class="comment">//a链接按下事件触发时的样式</span></span><br><span class="line">:focus <span class="comment">//获取焦点事件触发时的样式</span></span><br></pre></td></tr></table></figure>
+<p>结构伪类<br>根据DOM节点在DOM树的位置选择。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">div:first-child;</span><br><span class="line">div:last-child;</span><br><span class="line">first-child表示；处于第一个位置的某个元素（这里指第一个div）</span><br><span class="line">last-child表示：处于最后一个位置的某个元素（这里指最后一个div）</span><br><span class="line"></span><br><span class="line">相对父级节点的相对位置</span><br><span class="line">一般用组合标签</span><br><span class="line"></span><br><span class="line">&lt;input <span class="class"><span class="keyword">class</span> =</span> <span class="string">&quot;error&quot;</span>&gt;</span><br><span class="line">&lt;input type = <span class="string">&quot;text&quot;</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">input.error&#123;</span><br><span class="line">    border:<span class="number">1</span>px solid red;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<p>文字样式、文字颜色、RGB这里就不过多赘述。<br>HSL HSL全称：<br>Hue-Saturation-Lightness<br>色相 - 饱和度 - 亮度</p>
+<ul>
+<li>字体font-family<br>规则：字体列表最后要写上通用字体族；英文字体要放在字体前面；引用外部字体样式一般用于英文字体，因为中文字体文件较大。</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@font-face&#123;</span><br><span class="line">  font-family : <span class="string">&quot;demo&quot;</span>;</span><br><span class="line">  src = url(<span class="string">&quot;&quot;</span>); </span><br><span class="line">  format(<span class="string">&quot;woff2&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">h1 &#123;</span><br><span class="line">  font-family:<span class="string">&quot;demo&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>字体大小font-size<br>关键字：small、medium、large；<br>长度：px、em（相对父元素）；<br>百分数：相对父元素。</p>
+</li>
+<li><p>字体粗细font-weight<br>关键字：normal、bold；<br>px</p>
+</li>
+<li><p>行高line-height<br>div{<br>font-size:20px;<br>line-height:1.6;<br>}<br>此时：line-height = 32px</p>
+</li>
+</ul>
+<p><strong>简写 font:weight size/line-height family<br>（斜体 粗细 大小/行高 字体）</strong></p>
+<ul>
+<li><p>间距<br>letter-spacing：字符之间的距离；<br>word-spacing：单词之间的距离；</p>
+</li>
+<li><p>缩进text-indent</p>
+</li>
+<li><p>文字修饰text-decoration<br>underline：下划线；<br>line-through：删除线；<br>overline：上划线</p>
+</li>
+<li><p>空白符white-space决定空格和换行是否保留<br>nowrap：不换行，会出现横向滚动条；<br>pre：保留空格个换行；<br>pre-wrap：会换行（如果一行内显示不下换行）；<br>pre-line：会换行，但是会合并空格。</p>
+</li>
+</ul>
+<h2 id="深入css"><a href="#深入css" class="headerlink" title="深入css"></a>深入css</h2><p>选择器的特异度（specificity）<br>例：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;h1 <span class="class"><span class="keyword">class</span> =</span> <span class="string">&quot;title&quot;</span>&gt;&lt;/h1&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">  h1 &#123;</span><br><span class="line">    color:red;</span><br><span class="line">  &#125;;</span><br><span class="line">  .title &#123;</span><br><span class="line">   color:blue;</span><br><span class="line">   &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+<p>思考：这两个样式哪个会生效？<br>以id （伪）类 标签为顺序。<br>h1 0 0 1 =&gt;1<br>.title 0 1 0 =&gt; 10<br>10 &gt; 1 所以.title生效。</p>
+<ul>
+<li>继承<br>继承 是指：某些属性会自动继承其父元素的计算值，除非显示指定一个值。 注意，盒模型的尺寸不可继承，如width、height。<br>显示继承：</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">*&#123;</span><br><span class="line">  box-sizing:inherit; <span class="comment">//本不可继承</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">html&#123;</span><br><span class="line">  box-sizing:border-box; <span class="comment">//html内的所有元素默认border-box</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>初始值<br>初始值 是指：css中每个属性都有一个初始值（可使用initial重置为初始值）。</li>
+<li>css求值过程<br>（css原理，即解析DOM树后如何将对应节点渲染样式，生成渲染树）<br><img src="https://img-blog.csdnimg.cn/2095da39f061479194a6ab3246573323.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb3JsYW5kaW8=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></li>
+</ul>
+<h2 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h2><p>确定内容大小和位置的算法；<br>依据元素、容器、兄弟节点和内容等信息来计算。<br>布局模式<br>1、常规流 – 行级、块级、表格布局、flexBox、Grid布局；<br>2、浮动（float）布局；<br>3、绝对定位。</p>
+<p><strong>padding属性</strong><br>作用：确定元素四个方向的内边距；<br>顺序分别为：上 右 下 左；<br>一个例子： 如果要实现多终端一个盒模型始终保持宽高为1:1，如何做？</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">div&#123;</span><br><span class="line">  height : <span class="number">0</span>;</span><br><span class="line">  padding-top:<span class="number">100</span>%;</span><br><span class="line">  padding-top:<span class="number">100</span>%表示相对于容器，内边距为容器的宽的百分百。</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>一个例子！！！！css写出一个三角形！！</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">div&#123;</span><br><span class="line">   wdith:<span class="number">0</span>;</span><br><span class="line">   height:<span class="number">0</span>;</span><br><span class="line">   border-top:<span class="number">1</span>px solid red;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>margin属性</li>
+</ul>
+<p>margin：auto =&gt; 盒模型水平居中<br>margin collapse 边距合并/折叠，在垂直方向同时存在margin-top和margin-bottom时，取较大值。<br>举例：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="class"><span class="keyword">class</span>=</span><span class="string">&quot;a&quot;</span>&gt;&lt;/div&gt;</span><br><span class="line">&lt;div <span class="class"><span class="keyword">class</span>=</span><span class="string">&quot;b&quot;</span>&gt;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">      .a &#123;</span><br><span class="line">        border: <span class="number">1</span>px solid red;</span><br><span class="line">        width: <span class="number">100</span>px;</span><br><span class="line">        height: <span class="number">100</span>px;</span><br><span class="line">        margin-bottom: <span class="number">100</span>px;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      .b &#123;</span><br><span class="line">        border: <span class="number">1</span>px solid blue;</span><br><span class="line">        width: <span class="number">100</span>px;</span><br><span class="line">        height: <span class="number">100</span>px;</span><br><span class="line">        margin-top: <span class="number">100</span>px;</span><br><span class="line">      &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/06a81b90e34e4894a864e0b9df6d25ec.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb3JsYW5kaW8=,size_19,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<ul>
+<li>box-sizing属性<br>box-sizing:border-box：width和height包含了padding、border在内。如果width：100%，则内容的width&lt;100%。</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    div &#123;</span><br><span class="line">        box-sizing: border-box;</span><br><span class="line">        width: <span class="number">100</span>px;</span><br><span class="line">        height: <span class="number">100</span>px;</span><br><span class="line">        border: <span class="number">10</span>px solid red;</span><br><span class="line">      &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/46605493c6eb4848918d1ca9f508a6b8.png" alt="在这里插入图片描述"></p>
+<ul>
+<li>overflow属性<br>visible：若内容溢出，不隐藏。<br>hidden：若内容溢出，隐藏，且没有滚动条。<br>scroll：不管内容是否溢出，都有滚动条。</li>
+</ul>
+<h2 id="块级盒子与行级盒子的区别？"><a href="#块级盒子与行级盒子的区别？" class="headerlink" title="块级盒子与行级盒子的区别？"></a>块级盒子与行级盒子的区别？</h2><p>块级盒子<br>全称：Block Level Box</p>
+<ul>
+<li>不和其他合资并列摆放；</li>
+<li>使用所有的盒模型属性；</li>
+<li>常见会生成块级盒子的块级元素：body、aside、div、main、section、h1~h6、p、ul、li。</li>
+</ul>
+<p>行级盒子<br>全称：Inline Level Box</p>
+<ul>
+<li>一些行级盒子放在一行或拆开成多行；</li>
+<li>width、height不适用；</li>
+<li>常见会生成行级盒子的行级元素：span、em、strong、cite、code</li>
+</ul>
+<p><strong>常规流常见的布局？</strong><br>行级摆放上下文（IFC）<br>全称：Inline Formatting Content</p>
+<ul>
+<li>盒子在一行内水平摆放；</li>
+<li>一行放不下就换行；</li>
+<li>vertical-align控制垂直对齐（有基线）；</li>
+<li>text-align控制水命对齐；</li>
+<li>需要避开float浮动元素。</li>
+</ul>
+<p><strong>实现图片、文字居中对齐</strong></p>
+<p>verti-align:middle;</p>
+<h2 id="块级摆放上下文（BFC）"><a href="#块级摆放上下文（BFC）" class="headerlink" title="块级摆放上下文（BFC）"></a>块级摆放上下文（BFC）</h2><p>全称：Block Formatting Content</p>
+<ul>
+<li>盒子从上到下排列；</li>
+<li>垂直方向的margin许合并；</li>
+<li>BFC内盒子的margin不会与外面的margin合并；</li>
+<li>BFC不会和float浮动重叠。</li>
+</ul>
+<h2 id="Flex-Box"><a href="#Flex-Box" class="headerlink" title="Flex Box"></a>Flex Box</h2><ul>
+<li>盒子的摆放流向？</li>
+<li>盒子的摆放顺序？</li>
+<li>width和height？</li>
+<li>水平和垂直方向的对齐？</li>
+<li>是否允许拆行？</li>
+</ul>
+<p><strong>摆放顺序</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flex-direction: row/row-reverse/volumn/volumn-reverse</span><br></pre></td></tr></table></figure>
+
+<p><strong>水平对齐（主轴）</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">justify-content:flex-start/flex-end/center/space-between/space-around/space-evenly</span><br></pre></td></tr></table></figure>
+
+<p><strong>垂直对齐（侧轴）</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">align-item:flex-start/flex-end/center/stretch(拉伸)/baseline(基线）</span><br></pre></td></tr></table></figure>
+
+<p><strong>某一个子元素设置垂直属性</strong>align-self<br><strong>flexibility 子项的弹性</strong><br>容器有剩余空间，会伸展，否则会收缩</p>
+<ol>
+<li>flex-grow：有剩余空间的伸展能力；</li>
+<li>flex-shrink：空间不足时的收缩能力；</li>
+<li>flex-basis：基础长度</li>
+</ol>
+<p>其中，flex-shrink为0时，说明盒子不可被压缩（为刚性盒子），会压缩其他的盒子以达到该刚性盒子的宽高要求。<br>简写 flex:grow shrink basis<br>例子：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">flex:<span class="number">1</span> <span class="number">100</span>px <span class="comment">// grow/basis</span></span><br><span class="line">flex:<span class="number">1</span> <span class="number">0</span> <span class="number">100</span>px <span class="comment">//grow/shrink/basis</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Grid布局"><a href="#Grid布局" class="headerlink" title="Grid布局"></a>Grid布局</h2><p>display:grid即可生成一个块级的grid容器。 grid-template：相关属性将容器划分成网格。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">display: grid;</span><br><span class="line">grid-<span class="keyword">template</span>-columns: <span class="number">30</span>px <span class="number">30</span>px <span class="keyword">auto</span>;</span><br><span class="line">grid-<span class="keyword">template</span>-rows: <span class="number">20</span>px <span class="number">20</span>px <span class="keyword">auto</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/3f5e27e8b7a546e0a756aa5ea457b2d5.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAb3JsYW5kaW8=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<p><strong>绝对定位</strong></p>
+<ul>
+<li>position：relative/absolute/static/fixed</li>
+<li>relative ：在常规流布局。可以设置top、left、bottom、right来调整偏移长度。</li>
+<li>absolute：脱离常规流（文档流）。相对于最近的非static祖先元素定位。（一般为父级）。不会对流内元素布局造成影响。不设置top、left的话，会放在原来应该在的位置。（可能会有覆盖的情况出现）。</li>
+<li>fixed：相对于视口（一般为屏幕）定位（滚动时它不动）。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/01/22/%E3%80%90CSS%E7%9F%A5%E8%AF%86%E5%88%86%E4%BA%AB%E3%80%91/" data-id="ckypkjjoa0003mww38i7p81d0" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/01/22/hello-world/" class="article-date">
+  <time datetime="2022-01-22T05:11:47.111Z" itemprop="datePublished">2022-01-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/01/22/hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/01/22/hello-world/" data-id="ckypkjjo90002mww382in7dd7" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Git" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/11/12/Git/" class="article-date">
+  <time datetime="2021-11-12T06:38:14.000Z" itemprop="datePublished">2021-11-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/11/12/Git/">Git分享</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <meta name="referrer" content="no-referrer" />
+
+
+<h2 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h2><p>﻿<font color="#900" size=4>大家有没有这样一种困扰，每次在修改word文件时，版本很多忘记了之前几次的修改，想返回去的时候已经没有记录了，于是版本控制就诞生了！</font></p>
 <html><hr>
 
-<p>@<a href="%E8%AE%A4%E8%AF%86GIT">TOC</a></p>
+
 <h2 id="一、关于版本控制"><a href="#一、关于版本控制" class="headerlink" title="  一、关于版本控制"></a><font color="#0099ff">  一、关于版本控制</h2><p>1.文件的版本</p>
 <ul>
 <li>操作麻烦 每次都需要复制粘贴重命名</li>
@@ -226,153 +513,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/01/22/Git%E5%88%86%E4%BA%AB/" data-id="ckypjatcv00002ww38ranbptq" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-第一天总结" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2022/01/22/%E7%AC%AC%E4%B8%80%E5%A4%A9%E6%80%BB%E7%BB%93/" class="article-date">
-  <time datetime="2022-01-22T07:31:29.356Z" itemprop="datePublished">2022-01-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="HTML第一天"><a href="#HTML第一天" class="headerlink" title="HTML第一天"></a>HTML第一天</h2><h3 id="我们接下来是进行的网页开发网页的相关概念"><a href="#我们接下来是进行的网页开发网页的相关概念" class="headerlink" title="我们接下来是进行的网页开发网页的相关概念:"></a>我们接下来是进行的网页开发网页的相关概念:</h3><ul>
-<li><p>什么是网页?</p>
-</li>
-<li><p>什么是HTML?</p>
-</li>
-<li><p>网页的形成?</p>
-<p><strong>什么是网页</strong>：</p>
-<p> 1.网站是指在因特网上根据一定的规则，使用 HTML 等制作的用于展示特定内容相关的网页集合。<br> 2.网页是网站中的一“页”，通常是 HTML 格式的文件，它要通过浏览器来阅读。</p>
-<h3 id="网页的组成："><a href="#网页的组成：" class="headerlink" title="网页的组成："></a>网页的组成：</h3><p> 1.网页是构成网站的基本元素，它通常由图片、链接、文字、声音、视频等元素组成。通常我们看到的网页，常见以 .htm 或 .html 后缀结尾的文件，因此将其俗称为 HTML 文件。</p>
-<h3 id="什么是HTML："><a href="#什么是HTML：" class="headerlink" title="什么是HTML："></a>什么是HTML：</h3><p> 1.HTML 指的是超文本标记语言 (Hyper Text Markup Language) ，它是用来描述网页的一种语言。<br> 2.HTML 不是一种编程语言，而是一种标记语言 (markup language)。<br> 标记语言是一套标记标签 (markup tag)。<br>###网页的总结：<br> 1.网页是图片、链接、文字、声音、视频等元素组成, 其实就是一个html文件(后缀名为html)<br> 2.网页生成制作:  有前端人员书写 HTML 文件, 然后浏览器打开,就能看到了网页.<br> 3.HTML: 超文本标记语言, 用来制作网页的一门语言. 有标签组成的. 比如 图片标签 链接标签 视频标签等…<br>###浏览器：<br><strong>常用的浏览器</strong></p>
-</li>
-<li><p>IE</p>
-</li>
-<li><p>火狐</p>
-</li>
-<li><p>谷歌</p>
-</li>
-<li><p>苹果</p>
-</li>
-<li><p> 欧朋</p>
-</li>
-</ul>
-<ul>
-<li> 浏览器是网页显示、运行的平台。常用的浏览器有 IE、火狐（Firefox）、谷歌（Chrome）、Safari和Opera等。平时称为五大浏览器。</li>
-<li> 查看浏览器市场份额：<a target="_blank" rel="noopener" href="http://tongji.baidu.com/data/browser">http://tongji.baidu.com/data/browser</a></li>
-</ul>
-<p>  <strong>浏览器内核（渲染引擎）</strong></p>
-<ul>
-<li><p>负责读取网页内容，整理讯息，计算网页的显示方式并显示页面</p>
-</li>
-<li><p>目前国内一般浏览器都会采用 Webkit/Blink 内核，如 360、UC、QQ、搜狗等。</p>
-<h2 id="web标准："><a href="#web标准：" class="headerlink" title="web标准："></a>web标准：</h2></li>
-<li><p>Web 标准是由 W3C 组织和其他标准化组织制定的一系列标准的集合。W3C（万维网联盟）是国际最著名的标准化组织。</p>
-<h3 id="为什么需要Web标准："><a href="#为什么需要Web标准：" class="headerlink" title="为什么需要Web标准："></a>为什么需要Web标准：</h3></li>
-<li><p>浏览器不同，它们显示页面或者排版就有些许差异</p>
-</li>
-<li><p>遵循 Web 标准除了可以让不同的开发人员写出的页面更标准、更统一外，还有以下优点：<br>  1.让 Web 的发展前景更广阔。<br>  2.内容能被更广泛的设备访问。<br>  3.更容易被搜寻引擎搜索。<br>  4.降低网站流量费用。<br>  5.使网站更易于维护。<br>  6.提高页面浏览速度。</p>
-<h3 id="web标准的构成："><a href="#web标准的构成：" class="headerlink" title="web标准的构成："></a>web标准的构成：</h3><p>  主要包括 《结构Structure》 、《表现（Presentation）》和《行为（Behavior）》三个方面。<br>  Web 标准提出的最佳体验方案：<strong>结构、样式、行为相分离</strong>。<br>  简单理解：<strong>结构写到 HTML 文件中， 表现写到 CSS 文件中， 行为写到 JavaScript 文件中</strong></p>
-</li>
-</ul>
-<p>1.结构类似身体</p>
-<p>2.表现类似外观装饰</p>
-<p>3.行为类似行为动作</p>
-<p>4.相比较而言, 三者中结构最重要.</p>
-<h2 id="HTML标签的导读："><a href="#HTML标签的导读：" class="headerlink" title="HTML标签的导读："></a>HTML标签的导读：</h2><h3 id="HTML语法规则："><a href="#HTML语法规则：" class="headerlink" title="HTML语法规则："></a>HTML语法规则：</h3><p>​    1.HTML 标签是由尖括号包围的关键词，例如 <html>。<br>​    2.HTML 标签通常是成对出现的，例如 <html> 和 </html> ，我们称为<strong>双标签</strong>。<br>​    3.签。标签对中的第一个标签是开始标签，第二个标签是结束标签。<br>有些特殊的标签必须是单个标签（极少情况），例如 <br />，我们称为<strong>单标签</strong>。  </p>
-<h3 id="标签的关系："><a href="#标签的关系：" class="headerlink" title="标签的关系："></a>标签的关系：</h3><p>​    双标签关系可以分为两类：包含关系和并列关系<br>​    包含标签：<br>        <head><br>            <title> </title><br>        </head><br> 并列关系：</p>
-<pre><code>     &lt;head&gt; &lt;/head&gt;
-</code></pre>
-<p>​         <body> </body></p>
-<h3 id="基本结构标签："><a href="#基本结构标签：" class="headerlink" title="基本结构标签："></a>基本结构标签：</h3><p>​    每个网页都会有一个基本的结构标签（也称为骨架标签），页面内容也是在这些基本标签上书写</p>
-<p><strong>VSCode的使用：</strong></p>
-<pre><code>1. 双击打开软件。
-    2. 新建文件（Ctrl + N ）。
-    3. 保存（Ctrl + S ）, 注意移动要保存为 .html 文件
-    4. Ctrl + 加号键 ，Ctrl + 减号键  可以放大缩小视图 
-    5. 生成页面骨架结构。 输入! 按下 Tab 键。
-    6. 利用插件在浏览器中预览页面：单击鼠标右键，在弹出窗口中点击“Open In Default Browser”。
-        **DOCTYPE**
-&lt;!DOCTYPE html&gt;  文档类型声明标签,告诉浏览器这个页面采取html5版本来显示页面.
-</code></pre>
-<p><strong>lang 语言种类</strong><br>    用来定义当前文档显示的语言。<br>    en定义语言为英语<br>    zh-CN定义语言为中文<br>    简单来说,定义为en 就是英文网页, 定义为 zh-CN 就是中文网页<br>    其实对于文档显示来说，定义成en的文档也可以显示中文，定义成zh-CN的文档也可以显示英文<br>    这个属性对浏览器和搜索引擎(百度.谷歌等)还是有作用的<br><strong>字符集</strong><br>    1.字符集 (Character set)是多个字符的集合。以便计算机能够识别和存储各种文字。<br>    2.在<head>标签内，可以通过<meta> 标签的 charset 属性来规定 HTML 文档应该使用哪种字符编码。<br>    3.<meta charset=" UTF-8" /><br>    4.charset 常用的值有：GB2312 、BIG5 、GBK 和 UTF-8，其中 UTF-8 也被称为万国码，基本包含了全世界所有国家需要用到的字符.<br>    5.注意：上面语法是必须要写的代码，否则可能引起乱码的情况。一般情况下，统一使用“UTF-8”编码，尽量统一写成标准的 “UTF-8”，不要写成  “utf8” 或 “UTF8”。<br>###语义化标签：<br>    学习标签是有技巧的，重点是记住每个标签的语义。简单理解就是指标签的含义，即这个标签是用来干嘛的。<br>###什么是语义化标签：<br>    根据标签的语义，在合适的地方给一个最为合理的标签，可以让页面结构更清晰。<br>    下图没有语义化标签：<br><img src="images/%E6%B2%A1%E6%9C%89%E8%AF%AD%E4%B9%89.png"><br>###添加语义标签：<br><img src="images/%E8%AF%AD%E4%B9%89%E5%8C%96.png"><br>###常用的标签：<br>###标题标签<br>    <strong>标题标签 <h1> - <h6>（重要）</strong><br>    为了使网页更具有语义化，我们经常会在页面中用到标题标签。HTML 提供了 6 个等级的网页标题，即<h1> - <h6> 。<br>    具体实现：<br>          <h1> 我是一级标题 </h1><br>    特点：<br>    1.加了标题的文字会变的加粗，字号也会依次变大。<br>    2. 一个标题独占一行。<br>    来！！！左边。。。右边。。。中间：<br>        <h1>标题一共六级选,</h1><br>        <h2>文字加粗一行显。</h2><br>        <h3>由大到小依次减，</h3><br>        <h4>从重到轻随之变。</h4><br>        <h5>语法规范书写后，</h5><br>        <h6>具体效果刷新见。</h6><br>　　                ——pink老师<br>###段落标签：<br>    在网页中，要把文字有条理地显示出来，就需要将这些文字分段显示。在 HTML 标签中，<p>标签用于定义段落，它可以将整个网页分为若干个段落。<br>    具体实现：<br>         <p> 我是一个段落标签 </p><br>    特点：<br>        1. 文本在一个段落中会根据浏览器窗口的大小自动换行。<br>        2. 段落和段落之间保有空隙。<br>###换行标签<br>    在 HTML 中，一个段落中的文字会从左到右依次排列，直到浏览器窗口的右端，然后才自动换行。如果希望某段文本强制换行显示，就需要使用换行标签 <br />。<br>    具体实现：<br>          <br /><br>    特点：<br>        1. <br /> 是个单标签。<br>        2. <br /> 标签只是简单地开始新的一行，跟段落不一样，段落之间会插入一些垂直的间距。<br>###文本格式化标签：<br>    在网页中，有时需要为文字设置粗体、斜体 或下划线等效果，这时就需要用到 HTML 中的文本格式化标签，使文字以特殊的方式显示。<br><img src="images/%E6%A0%BC%E5%BC%8F%E5%8C%96%E6%A0%87%E7%AD%BE.png"><br>###div和span标签<br>    <div> 和 <span> 是没有语义的，它们就是一个盒子，用来装内容的。<br>    具体实现：<br>         <div> 这是头部 </div><br>         <span> 今日价格 </span><br>    特点：<br>        1. <div> 标签用来布局，但是现在一行只能放一个<div>。 大盒子<br>        2. <span> 标签用来布局，一行上可以多个 <span>。小盒子<br>###图片标签：<br>    在 HTML 标签中，<img> 标签用于定义 HTML 页面中的图像。<br>    具体实现：<br>          <img src="图像URL" /><br>    解释：<br>        src 是<img>标签的必须属性，它用于指定图像文件的路径和文件名。<br>        所谓属性：简单理解就是属于这个图像标签的特性。<br>    图像标签的其他属性：<br><img src="images/%E5%9B%BE%E7%89%87%E5%B1%9E%E6%80%A7.png"><br>​<br>    图像标签注意点：<br>        1.图像标签可以拥有多个属性，必须写在标签名的后面。<br>        2.属性之间不分先后顺序，标签名与属性、属性与属性之间均以空格分开。<br>        3.属性采取键值对的格式，即 key=“value” 的格式，属性 =“属性值”。<br>###路径：<br>    分为相对路径和绝对路径：<br>        <strong>路径之相对路径</strong><br>        相对路径：以引用文件所在位置为参考基础，而建立出的目录路径。<br>        这里简单来说，图片相对于 HTML 页面的位置<br><img src="images/%E8%B7%AF%E5%BE%84.png"><br>    特点：<br>        相对路径是从代码所在的这个文件出发，去寻找目标文件的，而我们这里所说的上一级 、下一级和同一级就是 图片相对于 HTML 页面的位置。<br>        路径之绝对路径：<br>            绝对路径：<br>            1.是指目录下的绝对位置，直接到达目标位置，通常是从盘符开始的路径。<br>            例如，“D:\web\img\logo.gif”或完整的网络地址“<a target="_blank" rel="noopener" href="http://www.itcast.cn/images/logo.gif%E2%80%9D">http://www.itcast.cn/images/logo.gif”</a><br>###链接标签：<br>     链接的语法格式<br>        <a href="跳转目标" target="目标窗口的弹出方式"> 文本或图像 </a><br>    属性：<br>        1.href：用于指定链接目标的url地址<br>        2.target:用于指定链接页面的打开方式_self默认值 _blank新窗口打开<br>        3.#：空链接<br>链接分类：<br>    1.外部链接: 例如 &lt; a href=”http:// <a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a> “&gt; 百度</a >。<br>    2.内部链接:网站内部页面之间的相互链接. 直接链接内部页面名称即可，例如 &lt; a href=”index.html”&gt; 首页 </a >。<br>    3.空链接: 如果当时没有确定链接目标时，&lt; a href=”#”&gt; 首页 </a > 。<br>    4.下载链接: 如果 href 里面地址是一个文件或者压缩包，会下载这个文件。<br>    5.网页元素链接: 在网页中的各种网页元素，如文本、图像、表格、音频、视频等都可以添加超链接.<br>    6.锚点链接:  点我们点击链接,可以快速定位到页面中的某个位置. </p>
-<ul>
-<li><pre><code>   在链接文本的 href 属性中，设置属性值为 #名字 的形式，如&lt;a href=&quot;#two&quot;&gt; 第2集 &lt;/a&gt; 
-</code></pre>
-</li>
-<li><pre><code> 找到目标位置标签，里面添加一个 id 属性 = 刚才的名字 ，如：&lt;h3 id=&quot;two&quot;&gt;第2集介绍&lt;/h3&gt;
-</code></pre>
-  ###注释<br>  如果需要在 HTML 文档中添加一些便于阅读和理解但又不需要显示在页面中的注释文字，就需要使用注释标签。<br>  HTML中的注释以“<!--”开头，以“ -->”结束。<br>  具体实现：<pre><code>   &lt;!-- 注释语句 --&gt;      快捷键: ctrl +  / 
-</code></pre>
-  一句话: 注释标签里面的内容是给程序猿看的, 这个代码是不执行不显示到页面中的.<br>  添加注释是为了更好地解释代码的功能，便于相关开发人员理解和阅读代码，程序是不会执行注释内容的<br>  ###特殊字符：<br>  在 HTML 页面中，一些特殊的符号很难或者不方便直接使用，此时我们就可以使用下面的字符来替代。<br>  <img src="images/%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6.png"><br>  重点记住：空格 、大于号、 小于号 这三个， 其余的使用很少，如果需要回头查阅即可。</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/01/22/%E7%AC%AC%E4%B8%80%E5%A4%A9%E6%80%BB%E7%BB%93/" data-id="ckypj15jg0001k8w3bidlc5y9" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2022/01/22/hello-world/" class="article-date">
-  <time datetime="2022-01-22T05:11:47.111Z" itemprop="datePublished">2022-01-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/01/22/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/01/22/hello-world/" data-id="ckypj15iw0000k8w3e6a3dold" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/11/12/Git/" data-id="ckypkjjnx0000mww35wl67y19" class="article-share-link">Share</a>
       
       
     </footer>
@@ -400,7 +541,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li></ul>
     </div>
   </div>
 
@@ -413,15 +554,19 @@
       <ul>
         
           <li>
-            <a href="/2022/01/22/Git%E5%88%86%E4%BA%AB/">(no title)</a>
+            <a href="/2022/01/22/js%E5%AF%B9%E8%B1%A1/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2022/01/22/%E7%AC%AC%E4%B8%80%E5%A4%A9%E6%80%BB%E7%BB%93/">(no title)</a>
+            <a href="/2022/01/22/%E3%80%90CSS%E7%9F%A5%E8%AF%86%E5%88%86%E4%BA%AB%E3%80%91/">(no title)</a>
           </li>
         
           <li>
             <a href="/2022/01/22/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2021/11/12/Git/">Git分享</a>
           </li>
         
       </ul>
