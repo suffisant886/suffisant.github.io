@@ -64,6 +64,130 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-移动端常见布局" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/08/14/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%B8%B8%E8%A7%81%E5%B8%83%E5%B1%80/" class="article-date">
+  <time datetime="2022-08-14T13:24:41.673Z" itemprop="datePublished">2022-08-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="移动端常见布局"><a href="#移动端常见布局" class="headerlink" title="移动端常见布局"></a>移动端常见布局</h3><ol>
+<li><h4 id="流式布局（百分比布局）"><a href="#流式布局（百分比布局）" class="headerlink" title="流式布局（百分比布局）"></a>流式布局（百分比布局）</h4></li>
+</ol>
+<ul>
+<li>流式布局，就是百分比布局，也称非固定像素布局。</li>
+<li>通过盒子的宽度设置成百分比来根据屏幕的宽度进行伸缩，不收固定像素的限制，内容向两侧填充。</li>
+<li>流式布局方式是移动web开发中比较常见的布局方式</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">section &#123;</span><br><span class="line">            width: 100%;</span><br><span class="line">            margin: 0 auto;</span><br><span class="line">            /* 自由伸缩主要是通过百分比布局实现，不设置宽度 */</span><br><span class="line">            max-width: 980px;</span><br><span class="line">            min-width: 450px;</span><br><span class="line">        &#125;</span><br><span class="line">        section div &#123;</span><br><span class="line">            float: left;</span><br><span class="line">            width: 50%;</span><br><span class="line">            height: 400px;</span><br><span class="line">        &#125;</span><br><span class="line">        section div:nth-child(1) &#123;</span><br><span class="line">            background-color: coral;</span><br><span class="line">        &#125;</span><br><span class="line">        section div:nth-child(2) &#123;</span><br><span class="line">            background-color: cornflowerblue;</span><br><span class="line">        &#125; </span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;section&gt;</span><br><span class="line">        &lt;div&gt;&lt;/div&gt;</span><br><span class="line">        &lt;div&gt;&lt;/div&gt;</span><br><span class="line">    &lt;/section&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>max-width 最大宽度</li>
+<li>min-width 最小宽度，保护内容</li>
+</ul>
+<p>案例：京东移动端首页</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; user-scalable=no,maximum-scale=1.0,minimum-scale=1.0&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="移动web开发——flex布局"><a href="#移动web开发——flex布局" class="headerlink" title="移动web开发——flex布局"></a>移动web开发——flex布局</h3><h2 id="1-0传统布局和flex布局对比"><a href="#1-0传统布局和flex布局对比" class="headerlink" title="1.0传统布局和flex布局对比"></a>1.0传统布局和flex布局对比</h2><h3 id="1-1传统布局"><a href="#1-1传统布局" class="headerlink" title="1.1传统布局"></a>1.1传统布局</h3><ul>
+<li>兼容性好</li>
+<li>布局繁琐</li>
+<li>局限性，不能再移动端很好的布局</li>
+</ul>
+<h3 id="1-2-flex布局"><a href="#1-2-flex布局" class="headerlink" title="1.2 flex布局"></a>1.2 flex布局</h3><ul>
+<li>操作方便，布局极其简单，移动端使用比较广泛</li>
+<li>pc端浏览器支持情况比较差</li>
+<li>IE11或更低版本不支持flex或仅支持部分</li>
+</ul>
+<h3 id="1-3-建议"><a href="#1-3-建议" class="headerlink" title="1.3 建议"></a>1.3 建议</h3><ul>
+<li> 如果是pc端页面布局，还是采用传统方式</li>
+<li> 如果是移动端或者是不考虑兼容的pc则采用flex</li>
+</ul>
+<h2 id="2-0-flex布局原理"><a href="#2-0-flex布局原理" class="headerlink" title="2.0 flex布局原理"></a>2.0 flex布局原理</h2><ul>
+<li>flex 是 flexible Box 的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性，任何一个容器都可以指定为 flex 布局。</li>
+<li>当我们为父盒子设为 flex 布局以后，子元素的 float、clear 和 vertical-align 属性将失效。</li>
+<li>flex布局又叫伸缩布局 、弹性布局 、伸缩盒布局 、弹性盒布局 </li>
+<li>采用 Flex 布局的元素，称为 Flex 容器（flex</li>
+</ul>
+<p>container），简称”容器”。它的所有子元素自动成为容器成员，称为 Flex 项目（flex<br>item），简称”项目”。</p>
+<p><strong>总结</strong>：就是通过给父盒子添加flex属性，来控制子盒子的位置和排列方式</p>
+<h2 id="3-0-父项常见属性"><a href="#3-0-父项常见属性" class="headerlink" title="3.0 父项常见属性"></a>3.0 父项常见属性</h2><ul>
+<li><p>flex-direction：设置主轴的方向</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Flex布局中默认的主轴是row，x轴 </span><br><span class="line">如果想改变主轴方向可通过设置flex-direction来改变 </span><br><span class="line">flex-direction:column;将主轴改为y轴，纵轴 </span><br><span class="line">flex-direction:row; 将主轴改为x轴，横轴 </span><br><span class="line">flex-direction:row- reverse;主轴为x轴，并且翻转 </span><br><span class="line">flex-direction:column- reverse;主轴为y轴，并且翻转 </span><br></pre></td></tr></table></figure></li>
+<li><p>justify-content：设置主轴上的子元素排列方式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">通过justify-content能够设置主轴子元素排列形式 </span><br><span class="line">值为flex-start 所有子元素在主轴头部显示 </span><br><span class="line">值为flex-end 所有子元素在主轴尾部显示 </span><br><span class="line">值为flex-center 所有子元素在主轴居中对齐 </span><br><span class="line">值为space-around 所有子元素平分剩余空间对齐 </span><br><span class="line">值为space-between 所有子元素先两边贴边在平分剩余空间对齐</span><br></pre></td></tr></table></figure></li>
+<li><p>flex-wrap：设置子元素是否换行 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">flex布局中，默认的子元素是不换行的， 如果装不开，会缩小子元素的宽度，放到父元素里面</span><br><span class="line">flex-wrap: nowrap;</span><br><span class="line">flex-wrap: wrap;</span><br></pre></td></tr></table></figure></li>
+<li><p>align-content：设置侧轴上的子元素的排列方式（多行）</p>
+</li>
+<li><p>align-items：设置侧轴上的子元素排列方式（单行）</p>
+</li>
+<li><p>flex-flow：复合属性，相当于同时设置了 flex-direction 和 flex-wrap</p>
+</li>
+</ul>
+<h3 id="3-1-flex-direction设置主轴的方向"><a href="#3-1-flex-direction设置主轴的方向" class="headerlink" title="3.1 flex-direction设置主轴的方向"></a>3.1 flex-direction设置主轴的方向</h3><ul>
+<li><p>在 flex 布局中，是分为主轴和侧轴两个方向，同样的叫法有 ： 行和列、x 轴和y 轴</p>
+</li>
+<li><p>默认主轴方向就是 x 轴方向，水平向右</p>
+</li>
+<li><p>默认侧轴方向就是 y 轴方向，水平向下</p>
+</li>
+<li><p>注意： 主轴和侧轴是会变化的，就看 flex-direction 设置谁为主轴，剩下的就是侧轴。而我们的子元素是跟着主轴来排列的</p>
+</li>
+</ul>
+<h3 id="3-3-flex-wrap设置是否换行"><a href="#3-3-flex-wrap设置是否换行" class="headerlink" title="3.3 flex-wrap设置是否换行"></a>3.3 flex-wrap设置是否换行</h3><ul>
+<li>默认情况下，项目都排在一条线（又称”轴线”）上。flex-wrap属性定义，flex布局中默认是不换行的。</li>
+<li>nowrap 不换行</li>
+<li>wrap 换行</li>
+</ul>
+<h3 id="3-4-align-items-设置侧轴上的子元素排列方式（单行-）"><a href="#3-4-align-items-设置侧轴上的子元素排列方式（单行-）" class="headerlink" title="3.4 align-items 设置侧轴上的子元素排列方式（单行 ）"></a>3.4 align-items 设置侧轴上的子元素排列方式（单行 ）</h3><ul>
+<li>该属性是控制子项在侧轴（默认是y轴）上的排列方式  在子项为单项（单行）的时候使用</li>
+<li>flex-start 从头部开始</li>
+<li>flex-end 从尾部开始</li>
+<li>center 居中显示</li>
+<li>stretch 拉伸</li>
+</ul>
+<h3 id="3-5-align-content-设置侧轴上的子元素的排列方式（多行）"><a href="#3-5-align-content-设置侧轴上的子元素的排列方式（多行）" class="headerlink" title="3.5 align-content  设置侧轴上的子元素的排列方式（多行）"></a>3.5 align-content  设置侧轴上的子元素的排列方式（多行）</h3><p>设置子项在侧轴上的排列方式 并且只能用于子项出现 换行 的情况（多行），在单行下是没有效果的。</p>
+<h3 id="3-6-align-content-和align-items区别"><a href="#3-6-align-content-和align-items区别" class="headerlink" title="3.6 align-content 和align-items区别"></a>3.6 align-content 和align-items区别</h3><ul>
+<li>align-items  适用于单行情况下， 只有上对齐、下对齐、居中和 拉伸</li>
+<li>align-content适应于换行（多行）的情况下（单行情况下无效）， 可以设置 上对齐、下对齐、居中、拉伸以及平均分配剩余空间等属性值。 </li>
+<li>总结就是单行找align-items  多行找 align-content</li>
+</ul>
+<h3 id="3-7-flex-flow-属性是-flex-direction-和-flex-wrap-属性的复合属性"><a href="#3-7-flex-flow-属性是-flex-direction-和-flex-wrap-属性的复合属性" class="headerlink" title="3.7 flex-flow 属性是 flex-direction 和 flex-wrap 属性的复合属性"></a>3.7 flex-flow 属性是 flex-direction 和 flex-wrap 属性的复合属性</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flex-flow:row wrap;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-0-flex布局子项常见属性"><a href="#4-0-flex布局子项常见属性" class="headerlink" title="4.0 flex布局子项常见属性"></a>4.0 flex布局子项常见属性</h2><ul>
+<li>flex子项目占的份数</li>
+<li>align-self控制子项自己在侧轴的排列方式</li>
+<li>order属性定义子项的排列顺序（前后顺序）</li>
+</ul>
+<h3 id="4-1-flex-属性"><a href="#4-1-flex-属性" class="headerlink" title="4.1  flex 属性"></a>4.1  flex 属性</h3><p>flex 属性定义子项目分配剩余空间，用flex来表示占多少份数。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.item &#123;</span><br><span class="line">    flex: &lt;number&gt;; /* 默认值 0 */</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-2-align-self控制子项自己在侧轴上的排列方式"><a href="#4-2-align-self控制子项自己在侧轴上的排列方式" class="headerlink" title="4.2 align-self控制子项自己在侧轴上的排列方式"></a>4.2 align-self控制子项自己在侧轴上的排列方式</h3><p>align-self 属性允许单个项目有与其他项目不一样的对齐方式，可覆盖 align-items 属性。</p>
+<p>默认值为 auto，表示继承父元素的 align-items 属性，如果没有父元素，则等同于 stretch。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">span:nth-child(2) &#123;</span><br><span class="line">      /* 设置自己在侧轴上的排列方式 */</span><br><span class="line">      align-self: flex-end;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-3-order-属性定义项目的排列顺序"><a href="#4-3-order-属性定义项目的排列顺序" class="headerlink" title="4.3 order 属性定义项目的排列顺序"></a>4.3 order 属性定义项目的排列顺序</h3><p>数值越小，排列越靠前，默认为0。</p>
+<p>注意：和 z-index 不一样。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.item &#123;</span><br><span class="line">    order: &lt;number&gt;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/08/14/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%B8%B8%E8%A7%81%E5%B8%83%E5%B1%80/" data-id="cl6td08jq0000j4w3b8ao2ond" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2022/01/22/hello-world/" class="article-date">
@@ -559,7 +683,7 @@ id选择器</li>
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">August 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li></ul>
     </div>
   </div>
 
@@ -570,6 +694,10 @@ id选择器</li>
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2022/08/14/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%B8%B8%E8%A7%81%E5%B8%83%E5%B1%80/">(no title)</a>
+          </li>
         
           <li>
             <a href="/2022/01/22/hello-world/">Hello World</a>
