@@ -153,6 +153,22 @@
 
 
         </div>
+
+        <div>
+	<iframe id="myframe" frameborder="no" border="0" marginwidth="0" marginheight="0" width=130 height=110 src="https://api.uomg.com/api/rand.music?sort=%E7%83%AD%E6%AD%8C%E6%A6%9C" >
+	</iframe>
+	<input type="button" onclick="javascript:refreshFrame();" value="切换BGM" />
+
+	<script type="text/javascript">
+			function refreshFrame() {
+				document.getElementById('myframe').src="https://api.uomg.com/api/rand.music?sort=%E7%83%AD%E6%AD%8C%E6%A6%9C";
+			}
+	</script>
+</div>
+
+
+</div>
+
       </div>
     </div>
   </aside>
